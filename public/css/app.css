@@ -1,0 +1,772 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    /*border: 1px solid blue;*/
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+}
+
+
+
+body {
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+    background: repeating-linear-gradient(45deg,
+            #CCCC66,
+            #CCCC66 10px,
+            #ff9 10px,
+            #ff9 20px);
+}
+
+header {
+    width: auto;
+    background-color: #CCCC66;
+}
+
+.a-container {
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 80%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+
+}
+
+.error {
+    color: red;
+}
+
+.image1 {
+    width: 100%;
+    max-width: 160px;
+    height: 100%;
+    max-height: 160px;
+}
+
+.image2 {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.header_nav {
+    display: flex;
+    margin-left: auto;
+}
+
+.header_nav a {
+    font-size: 24px;
+    margin-left: 20px;
+    text-decoration: none;  
+    font-weight: bold;
+}
+
+/*
+ main {
+            flex: 1; //メインコンテンツを余ったスペースに広げる 
+            padding: 1rem;
+            background: #f9f9f9;
+        }
+*/
+
+.carousel {
+    background-color: #CCCC99;
+}
+
+.slider {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    /* 画面幅に応じて縮小 */
+    width: 1200px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    overflow: hidden;
+}
+
+/* スライドエリア */
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: calc(100% * 3);
+    height: 100%;
+}
+
+.slide {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.slide img {
+    width: 60%;
+    height: 100%;
+    object-fit: cover;
+    /* アスペクト比を維持しつつ枠に収める */
+    border-radius: 10px;
+
+}
+
+
+
+.controls {
+    position: absolute;
+    top: 50%;
+    left: 20%;
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    max-height: 150px;
+    height: 100%;
+}
+
+.controls button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 18px;
+    max-width: 50px;
+    width: 100%;
+
+}
+
+.controls button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.news-item {
+    display: flex;
+    gap: 10px;
+
+}
+
+.News {
+    display: flex;
+    flex-flow: column;
+}
+
+
+.News-title {
+    text-align: center;
+    background-color: #006400;
+}
+
+.News a {
+    font-size: 25px;
+    color: black;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.News p {
+    font-size: 25px;
+    color: white;
+}
+
+.title {
+    background-color: white;
+}
+
+.tabs {
+    border: 1px solid #000;
+    margin-top: 40px;
+    margin-bottom:40px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.tab-menu {
+    display: flex;
+    /* 横並びにする */
+    justify-content: center;
+    /* 水平方向の中央揃え */
+    align-items: center;
+    /* 垂直方向の中央揃え */
+    gap: 10px;
+    /* ボタン同士の間隔を適度に開ける */
+    height: 100px;
+}
+
+
+
+.w-tabs {
+    position: relative;
+
+}
+
+
+.w-tabs:after {
+    clear: both;
+}
+
+.w-tab-menu {
+    position: relative;
+    width: 100%;
+}
+
+
+.w-tab-link {
+    position: relative;
+    display: flex;
+    /* Flexboxを使用 */
+    justify-content: center;
+    /* 水平方向の中央揃え */
+    align-items: center;
+    /* 垂直方向の中央揃え */
+    text-align: center;
+    /* テキストの中央揃え */
+    text-decoration: none;
+    padding: 9px 30px;
+    cursor: pointer;
+    color: #FF9900;
+    border: 3px solid #FF9900;
+    background-color: white;
+    height: 100px;
+    /* 親要素 .tab-menu の高さと統一 */
+    width: 220px;
+    /* 必要に応じて幅を指定 */
+    font-size: 20px;
+}
+
+
+
+.w-tab-link.w--current {
+    height: 120px;
+    color: white;
+    background-color: #FF9900;
+    border: 3px solid white;
+    font-weight: bold;
+
+}
+
+.w-tab-link:focus {
+    outline: 0;
+}
+
+.w-tab-content {
+    position: relative;
+    display: block;
+    overflow: hidden;
+
+}
+
+.w-tab-pane {
+    position: relative;
+    display: none;
+
+}
+
+.w--tab-active {
+    display: block;
+}
+
+@media screen and (max-width: 479px) {
+    .w-tab-link {
+        display: block;
+    }
+}
+
+.w-ix-emptyfix:after {
+    content: "";
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.w-dyn-empty {
+    padding: 10px;
+    background-color: #dddddd;
+}
+
+.w-dyn-hide {
+    display: none !important;
+}
+
+.w-dyn-bind-empty {
+    display: none !important;
+}
+
+.w-condition-invisible {
+    display: none !important;
+}
+
+.wf-layout-layout {
+    display: grid;
+}
+
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.5s ease-in;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+.login-body {
+    height: 100vh;
+    background: repeating-linear-gradient(45deg,
+            #CCCC66,
+            #CCCC66 10px,
+            #ff9 10px,
+            #ff9 20px);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+}
+
+
+.l-container {
+    width: 100%;
+    max-width: 600px;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    margin: 0 auto;
+    background-color: #E6FFE9;
+    border-radius: 20px;
+}
+
+.register-container {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    margin: 0 auto;
+    background-color: #E6FFE9;
+    border-radius: 20px;
+    padding-top: 20px;
+}
+
+
+form {
+    width: 100%;
+    /* 親要素にフィット */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+
+.l-input {
+    width: 100%;
+    max-width: 500px;
+    height: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-button {
+    width: 100%;
+    max-width: 600px;
+    height: 40px;
+    font-size: 26px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #33CC66;
+    border-radius: 20px;
+}
+
+.l-form {
+    width: 100%;
+    /* フォームの幅を `register-container` に合わせる */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.l-form p {
+    font-size: 20px;
+}
+
+label {
+    font-size: 30px;
+    font-weight: bold;
+    color: #006400;
+}
+
+.button-container {
+    display: flex;
+    width: 100%;
+    max-width: 400px;
+    gap: 10px;
+    padding-bottom: 20px;
+}
+
+.text-block {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.back-button,
+.accounting-button {
+    width: 100%;
+    height: 60px;
+    background-color: black;
+    color: white;
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+.submit-button {
+    width: 100%;
+    height: 60px;
+    background-color: #33CC66;
+    color: white;
+    font-size: 20px;
+    border-radius: 20px;
+}
+
+.r-form {
+    width: 100%;
+    height: 200px;
+    /* フォームの幅を `register-container` に合わせる */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.admin-container {
+    display: flex;
+    width: 100%;
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 5px;
+
+}
+
+.category {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    flex: 1;
+    /* 均等に幅を取る */
+    padding: 10px;
+    border-right: 1px solid #333;
+    text-align: center;
+}
+
+.category:last-child {
+    border-right: none;
+    /* 最後の項目の右枠線を削除 */
+}
+
+.category_name {
+    background-color: #006400;
+}
+
+.category_name p {
+    color: white;
+    font-weight: bold;
+    margin: 0;
+}
+
+.category_content {
+    height: 100%;
+    max-height: 300px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    overflow-y: auto;
+}
+
+
+
+.category_content p,
+.category_content a {
+    margin: 0;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: auto;
+    margin-bottom: auto;
+
+
+}
+
+.admin_picture {
+    width: 60%;
+
+}
+
+.one-button-container {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    margin-top: 30px;
+}
+
+.add-button {
+    margin: 0 auto;
+    width: 200px;
+    height: 100%;
+    font-size: 30px;
+    border-radius: 20px;
+}
+
+.edit-button {
+    width: 60%;
+    height: 60px;
+    font-size: 30px;
+    margin: 10px;
+    border-radius: 20px;
+}
+
+.delete-button {
+    width: 60%;
+    height: 60px;
+    font-size: 30px;
+    border-radius: 20px;
+}
+
+.items-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    /* 横並びにしつつ折り返し可能に */
+    gap: 20px;
+    /* アイテム間のスペース */
+    justify-content: center;
+
+}
+
+.item-container {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    /* 固定幅にする */
+    border-radius: 5px;
+    border: 1px solid #333;
+    /* 確認用 */
+    padding: 10px;
+}
+
+.item {
+    background-color: white;
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+
+}
+
+.item p {
+    border: 1px solid black;
+}
+
+.item-title {
+    background-color: orange;
+    color: #FFFFFF;
+}
+
+.item-price {
+    background-color: #99CC99;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.item-explanation {
+    height: 100px;
+    background-color: #F5F5DC;
+    /* ベージュ */
+    text-align: center;
+    border-radius: 5px;
+    font-size: 20px;
+    overflow-y: auto;
+    word-wrap: break-word;
+}
+
+
+.accounting-button {
+    margin: 0 auto;
+    width: 200px;
+    height: 100%;
+    font-size: 30px;
+    font-weight: bold;
+    border-radius: 20px;
+    background-color: blue;
+    color: white;
+}
+
+.order-form {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.order-button {
+    width: 80%;
+    height: 60%;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: red;
+    color: white;
+    border-radius: 20px;
+}
+
+/*cart.blade.php関連*/
+
+.list-item {
+    display: flex;
+    width: 60%;
+    margin: 0 auto;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.cart-item {
+    width: 90%;
+    display: flex;
+    margin: 0 auto;
+
+}
+
+.cart-details {
+    width: 300px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.cart-image {
+    width: 100%;
+}
+
+.cart-name {
+    font-size: 30px;
+    font-weight: bold;
+    background-color: orange;
+    color: #FFFFFF;
+}
+
+.cart-price {
+    font-size: 30px;
+    font-weight: bold;
+    background-color: #99CC99;
+}
+
+
+.cart-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    width: 150px;
+}
+
+.cart-delete-button {
+    width: 100%;
+    height: 60px;
+    background-color: red;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+.registration-button {
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: red;
+    color: white;
+    border-radius: 20px;
+}
+
+.order-container{
+display: flex;
+flex-flow: column;
+justify-content: center;
+align-items: center;
+width:auto;
+}
+
+.table-container{
+width:80%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.table{
+    width:70%;
+    font-size:30px;
+    font-weight: bold;
+    background-color: white;
+}
+
+.table-name{
+height:100px;
+}
+
+.table-price{
+width:30%;
+}
+
+.table-quantity{
+width:20%;
+}
+
+.QR-button {
+    width: 180px;
+    height: 70px;
+    background-color: blue;
+    color: white;
+    font-size: 20px;
+    border-radius: 20px;
+    margin-left:auto;
+}
+
+.order-container {
+    border: 2px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.order-container.reserved {
+    border-color: red;
+    background-color: #ffe6e6;
+}
+
+.reserved-label {
+    color: red;
+    font-weight: bold;
+}
+
+.qr-notice {
+    font-weight: bold;
+    color: red;
+}
